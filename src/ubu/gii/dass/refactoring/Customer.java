@@ -20,7 +20,7 @@ public class Customer {
 		_name = name;
 		_rentals = new ArrayList<Rental>();
 
-	};
+	}
 
 	public void addRental(Rental arg) {
 		_rentals.add(arg);
@@ -28,13 +28,13 @@ public class Customer {
 
 	public String getName() {
 		return _name;
-	};
+	}
 
 	public String statement() {
 		double totalAmount = 0;
 		int frequentRenterPoints = 0;
 		Iterator<Rental> rentals = _rentals.iterator();
-		String result = "Rental Record for " + getName() + "\n";
+		String result = getCabecera();
 		while (rentals.hasNext()) {
 			double thisAmount = 0;
 			Rental each = rentals.next();
@@ -48,14 +48,27 @@ public class Customer {
 					&& each.getDaysRented() > 1)
 				frequentRenterPoints++;
 			// show figures for this rental
-			result += "\t" + each.getMovie().getTitle() + "\t"
-					+ String.valueOf(thisAmount) + "\n";
+			result = getFila(result, thisAmount, each.getMovie().getTitle());
 			totalAmount += thisAmount;
 		}
 		// add footer lines
+		result = getPie(totalAmount, frequentRenterPoints, result);
+		return result;
+	}
+
+	private String getPie(double totalAmount, int frequentRenterPoints, String result) {
 		result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-		result += "You earned " + String.valueOf(frequentRenterPoints)
-				+ " frequent renter points";
+		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
+		return result;
+	}
+
+	private String getFila(String result, double thisAmount, String titulo) {
+		result += "\t" + titulo + "\t" + String.valueOf(thisAmount) + "\n";
+		return result;
+	}
+
+	private String getCabecera() {
+		String result = "Rental Record for " + getName() + "\n";
 		return result;
 	}
 }
