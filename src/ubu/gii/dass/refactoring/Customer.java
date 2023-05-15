@@ -36,17 +36,11 @@ public class Customer {
 		Iterator<Rental> rentals = _rentals.iterator();
 		String result = getCabecera(false);
 		while (rentals.hasNext()) {
-			double thisAmount = 0;
 			Rental each = rentals.next();
 			// determine amounts for each line
-			thisAmount = each.getCharge();
+			double thisAmount = each.getCharge();
 			
-			// add frequent renter points
-			frequentRenterPoints++;
-			// add bonus for a two day new release rental
-			if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE)
-					&& each.getDaysRented() > 1)
-				frequentRenterPoints++;
+			frequentRenterPoints += each.getFrecuentRenterPoints();
 			// show figures for this rental
 			result = getFila(result, thisAmount, each.getMovie().getTitle(), false);
 			totalAmount += thisAmount;
