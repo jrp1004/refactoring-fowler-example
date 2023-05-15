@@ -17,7 +17,7 @@ public class VideoClubAplicacion {
 		c1.addRental(r3);
 
 		System.out.println(c1.statement(false));
-
+		System.out.println(c1.statement(true));
 	}
 
 }
