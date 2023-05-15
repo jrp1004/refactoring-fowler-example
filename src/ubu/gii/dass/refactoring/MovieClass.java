@@ -1,7 +1,7 @@
 package ubu.gii.dass.refactoring;
 
 public enum MovieClass {
-	CHILDREN(1.5,3,1.5), REGULAR(2,2,1.5), NEW_RELEASE(0,0,3);
+	CHILDRENS(1.5,3,1.5), REGULAR(2,2,1.5), NEW_RELEASE(0,0,3);
 	
 	private double price;
 	private int dias;

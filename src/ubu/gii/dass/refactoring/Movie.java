@@ -12,24 +12,20 @@ package ubu.gii.dass.refactoring;
  */
 
 public class Movie {
-	public static final int CHILDRENS = 2;
-	public static final int REGULAR = 0;
-	public static final int NEW_RELEASE = 1;
-
 	private String _title;
-	private int _priceCode;
+	private MovieClass clase;
 
-	public Movie(String title, int priceCode) {
+	public Movie(String title, MovieClass clase) {
 		_title = title;
-		_priceCode = priceCode;
+		this.setClase(clase);
+	}
+	
+	public MovieClass getClase() {
+		return clase;
 	}
 
-	public int getPriceCode() {
-		return _priceCode;
-	}
-
-	public void setPriceCode(int arg) {
-		_priceCode = arg;
+	public void setClase(MovieClass clase) {
+		this.clase = clase;
 	}
 
 	public String getTitle() {
