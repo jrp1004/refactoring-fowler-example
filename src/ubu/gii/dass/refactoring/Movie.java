@@ -31,4 +31,12 @@ public class Movie {
 	public String getTitle() {
 		return _title;
 	}
+
+	public double getCharge(int daysRented) {
+		double result=getClase().getPrice();
+		if(daysRented>getClase().getDias()) {
+			result+=(daysRented-getClase().getDias())*getClase().getMultiplicador();
+		}
+		return result;
+	}
 }

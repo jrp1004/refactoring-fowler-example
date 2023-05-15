@@ -11,7 +11,7 @@ package ubu.gii.dass.refactoring;
  * 
  */
 public class Rental {
-	private Movie _movie;
+	Movie _movie;
 	private int _daysRented;
 
 	public Rental(Movie movie, int daysRented) {
@@ -26,13 +26,9 @@ public class Rental {
 	public Movie getMovie() {
 		return _movie;
 	}
-
+	
 	public double getCharge() {
-		double result=getMovie().getClase().getPrice();
-		if(getDaysRented()>getMovie().getClase().getDias()) {
-			result+=(getDaysRented()-getMovie().getClase().getDias())*getMovie().getClase().getMultiplicador();
-		}
-		return result;
+		return getMovie().getCharge(getDaysRented());
 	}
 
 	int getFrecuentRenterPoints() {
