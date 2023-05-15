@@ -32,7 +32,13 @@ public class VideoClubTest {
 	}
 
 	@After
-	public void tearDown() throws Exception {}
+	public void tearDown() throws Exception {
+		m0=null;
+		m11=null;
+		m12=null;
+		m2=null;
+		c1=null;
+	}
 
 	@Test
 	public void testAlquiler() {
